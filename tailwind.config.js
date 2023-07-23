@@ -17,7 +17,7 @@ module.exports = {
       center: true,
       padding: "1.5rem",
       screens: {
-        "2x1": "1360px",
+        "2xl": "1360px",
       },
     },
     extend: {
@@ -31,5 +31,5 @@ module.exports = {
       "dark-gold": "#533519",
     },
   },
-  plugins: [require('tailwindcss-animate'), require('tailwindcss/typography')],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

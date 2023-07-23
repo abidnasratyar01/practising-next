@@ -1,15 +1,16 @@
-import { FC, HTMLAttributes, forwardRef } from "react";
-import { VariantProps, cva } from "class-variance-authority";
+import { FC } from "react";
+
 import { cn } from "@/lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
 
 const headingVariants = cva(
   "text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tighter",
   {
     variants: {
       size: {
-        default: "text-4x1 md:text-5x1 lg:text-6x1",
-        lg: "text-5x1 md:text-6x1 lg:text-7x1",
-        sm: "text-2x1 md:text-3x1 lg:text-4x1",
+        default: "text-4xl md:text-5xl lg:text-6xl",
+        lg: "text-5xl md:text-6xl lg:text-7xl",
+        sm: "text-2xl md:text-3xl lg:text-4xl",
       },
     },
     defaultVariants: {
@@ -19,23 +20,20 @@ const headingVariants = cva(
 );
 
 interface LargeHeadingProps
-  extends HTMLAttributes<HTMLHeadingElement>,
+  extends React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof headingVariants> {}
 
-const Paragraph = forwardRef<HTMLHeadingElement, LargeHeadingProps>(
-  ({ className, size, children, ...props }, ref) => {
-    return (
-      <h1
-        ref={ref}
-        {...props}
-        className={cn(headingVariants({ size, className }))}
-      >
-        {children}
-      </h1>
-    );
-  }
-);
+const LargeHeading: FC<LargeHeadingProps> = ({
+  children,
+  className,
+  size,
+  ...props
+}) => {
+  return (
+    <h1 {...props} className={cn(headingVariants({ size, className }))}>
+      {children}
+    </h1>
+  );
+};
 
-Paragraph.displayName = "Paragraph";
-
-export default Paragraph;
+export default LargeHeading;

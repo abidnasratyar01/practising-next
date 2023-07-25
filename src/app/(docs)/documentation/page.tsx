@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Metadata } from "next";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
+import DocumentationTabs from "@/components/DocumentationTabs";
 
 export const metadata: Metadata = {
   title: "Practising Nextjs",
@@ -15,7 +16,7 @@ const page: FC = () => {
         <LargeHeading>Making a request</LargeHeading>
         <Paragraph>api/v1/similarity</Paragraph>
 
-        {/* <DocumentationTabs /> */}
+        <DocumentationTabs />
       </div>
     </div>
   );
